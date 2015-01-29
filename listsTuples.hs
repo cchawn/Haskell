@@ -62,7 +62,11 @@ orderThree (x, y, z) =
 	[2]
 -}
 
--- 5.18
+-- 5.18 Define a function which doubles all
+-- elements of a list of integers.
+doubleAll :: [Int] -> [Int]
+doubleAll [] = []
+doubleAll (x:xs) = (2*x) : (doubleAll xs)
 -- 5.19
 -- 5.20
 -- 5.21
