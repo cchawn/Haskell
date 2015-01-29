@@ -67,7 +67,9 @@ orderThree (x, y, z) =
 doubleAll :: [Int] -> [Int]
 doubleAll [] = []
 doubleAll (x:xs) = (2*x) : (doubleAll xs)
+
 -- 5.19
+
 -- 5.20
 -- 5.21
 
