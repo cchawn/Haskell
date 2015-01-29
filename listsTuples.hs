@@ -50,9 +50,18 @@ orderThree (x, y, z) =
 
 -- 5.16 How many items does the list [2,3] contain?
 -- how many does [[2,3]] contain? What is the type?
+{-
+	[2,3] is a list containing 2 integers
+	[[2,3]] is a list of Int lists, with one element
+-}
 
+-- 5.17 What is the result of evaluating [2..4]?
+-- What about [2,7..4]?
+{-
+	[2,3,4]
+	[2]
+-}
 
--- 5.17
 -- 5.18
 -- 5.19
 -- 5.20
