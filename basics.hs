@@ -34,6 +34,8 @@ myMinThree a b c
 
 -- 3.16 Define a function to convert lower
 -- case letters to upper case
+-- SOLUTION MAY BE MORE COMPLICATED THAN THIS?
+-- does "letters" imply a String?
 toUpper :: Char -> Char
 toUpper ch = toEnum (fromEnum ch + (fromEnum 'A' - fromEnum 'a'))
 
