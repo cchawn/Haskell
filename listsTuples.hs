@@ -68,7 +68,21 @@ doubleAll :: [Int] -> [Int]
 doubleAll [] = []
 doubleAll (x:xs) = (2*x) : (doubleAll xs)
 
--- 5.19
+-- 5.19 Define a function which converts all small
+-- letters in a String to capitals, leaving other
+-- characters unchanged. Then write similar function,
+-- but it removes all non-letters.
+toUpper :: Char -> Char
+toUpper ch
+	| ('a' <= ch) && (ch <= 'z') = toEnum (fromEnum ch + (fromEnum 'A' - fromEnum 'a'))
+	| otherwise = ch
+
+capitalize :: String -> String
+capitalize "" = ""
+capitalize (c:cs) = (toUpper c) : (capitalize cs)
+
+capitalizeLetters :: String -> String
+
 
 -- 5.20
 -- 5.21
