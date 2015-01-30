@@ -130,7 +130,14 @@ disjunction :: [Bool] -> Bool
 disjunction [] = False
 disjunction (x:xs) = x || disjunction xs
 
--- 7.8
+-- 7.8 define a function that returns the number
+-- of times n occurs in a list
+elemNum :: Int -> [Int] -> Int
+elemNum n [] = 0
+elemNum n (x:xs)
+	| n == x = 1 + (elemNum n xs)
+	| otherwise = elemNum n xs
+
 -- 7.9
 -- 7.21
 -- 7.23
