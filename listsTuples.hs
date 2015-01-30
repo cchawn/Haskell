@@ -120,8 +120,15 @@ prod :: [Int] -> Int
 prod [] = 1
 prod (x:xs) = x * (prod xs)
 
--- 7.6 
+-- 7.6 define function which give the conjuction
+-- and disjunction of a list of Bools
+conjunction :: [Bool] -> Bool
+conjunction [] = True
+conjunction (x:xs) = x && (conjunction xs)
 
+disjunction :: [Bool] -> Bool
+disjunction [] = False
+disjunction (x:xs) = x || disjunction xs
 
 -- 7.8
 -- 7.9
