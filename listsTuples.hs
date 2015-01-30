@@ -138,7 +138,11 @@ elemNum n (x:xs)
 	| n == x = 1 + (elemNum n xs)
 	| otherwise = elemNum n xs
 
--- 7.9
+-- 7.9 Define a function that returns the list of
+-- elements (of a list) which occur exactly once
+unique :: [Int] -> [Int]
+unique xs = [x | x <- xs, (elemNum x xs) == 1 ]
+
 -- 7.21
 -- 7.23
 -- 7.25
