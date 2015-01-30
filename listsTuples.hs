@@ -114,8 +114,15 @@ element :: Int -> [Int] -> Bool
 element n [] = False
 element n (x:xs) = n == x || element n xs
 
--- 7.5
--- 7.6
+-- 7.5 define a function which gives product of a
+-- list of integers, and returns 1 for empty list
+prod :: [Int] -> Int
+prod [] = 1
+prod (x:xs) = x * (prod xs)
+
+-- 7.6 
+
+
 -- 7.8
 -- 7.9
 -- 7.21
