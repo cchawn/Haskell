@@ -100,7 +100,19 @@ isPrime n
 	| n < 1 = False
 	| otherwise = True -- haha NOPE not doing this
 
--- 5.21 
+-- 5.21 Define a funtion which picks out all occurences
+-- of an integer n in a list
+-- using this, define a function wich returns True if
+-- element is in list, and False otherwise
+matches :: Int -> [Int] -> [Int]
+matches n [] = []
+matches n (x:xs)
+	| n == x = n : (matches n xs)
+	| otherwise = matches n xs
+
+element :: Int -> [Int] -> Bool
+element n [] = False
+element n (x:xs) = n == x || element n xs
 
 -- 7.5
 -- 7.6
