@@ -82,10 +82,25 @@ capitalize "" = ""
 capitalize (c:cs) = (toUpper c) : (capitalize cs)
 
 capitalizeLetters :: String -> String
+capitalizeLetters "" = ""
+capitalizeLetters (c:cs)
+	| ('A' <= c) && (c <= 'z') = (toUpper c) : (capitalizeLetters cs)
+	| otherwise = capitalizeLetters cs
 
+-- 5.20 Define a function which returns a list of divisors
+-- of a positive integer (and the empty list for other inputs)
+-- using divisors write a function isPrime
+divisors :: Int -> [Int]
+divisors n
+	| n <= 0 = []
+	| otherwise = [x | x <- [1..n], (mod n x) == 0]
 
--- 5.20
--- 5.21
+isPrime :: Int -> Bool
+isPrime n
+	| n < 1 = False
+	| otherwise = True -- haha NOPE not doing this
+
+-- 5.21 
 
 -- 7.5
 -- 7.6
