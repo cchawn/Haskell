@@ -30,3 +30,46 @@ sumSquares ns = sum (squares ns)
 allPositive :: [Int] -> Bool
 allPositive ns = and (map positive ns)
 	where positive x = x > 0
+
+-- 10.8 type and define a function twice
+-- takes function from ints to ints, and an
+-- input int, output is function applied
+-- to input twice
+twice :: (Int -> Int) -> Int -> Int
+twice f x = f (f x)
+
+double :: Int -> Int
+double x = x * 2
+
+-- 10.9 type of and define a function iter
+-- iter n f x = f (f... (f x)...))
+iter :: Int -> (a -> a) -> a -> a
+iter 0 _ x = x
+iter n f x = iter (n - 1) f (f x)
+
+-- 10.10 using iter and double, define a function
+-- on input n returns 2^n; 1 * 2 n times
+pow2 :: Int -> Int
+pow2 n = iter n double 1
+
+-- 10.13 define sum of squares from 1 .. n 
+-- using map and foldr
+sumSquares2 :: Int -> Int
+sumSquares2 n = foldr (+) 0 (map square [1..n])
+	where square x = x * x
+
+-- 10.14 define sum sqaures for positive [int]
+sumSquaresPos :: [Int] -> Int
+sumSquaresPos lis = foldr (+) 0 (map square (filter positive lis))
+	where
+		positive x = x > 0
+		square x = x * x
+
+-- 10.18 filterFirst :: (a -> Bool) -> [a] -> [a]
+-- filterFirst p xs removes first element of xs
+-- that does not have property p
+filterFirst :: (a -> Bool) -> [a] -> [a]
+filterFirst p [] = []
+filterFirst p (x:xs)
+	| p x == True = x : (filterFirst p xs)
+	| otherwise = xs
