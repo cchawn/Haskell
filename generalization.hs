@@ -73,3 +73,47 @@ filterFirst p [] = []
 filterFirst p (x:xs)
 	| p x == True = x : (filterFirst p xs)
 	| otherwise = xs
+
+-- 11.2 if id is polymorphic identity funciton
+-- defined by id x = x explain behaviour of:
+-- (id.f)	(f.id)	id f
+-- f is of type Int -> Bool, at what instance
+-- of its most general type a -> a is id used in each case?
+-- what type does f have if f id is properly typed?
+{-
+-}
+
+-- 11.3 define a function composeList that composes
+-- a list of functions into a single function
+composeList :: [a -> a] -> a -> a
+composeList [] = id
+composeList (f:fs) = f . (composeList fs)
+
+-- 11.7 using lamda abstraction, "not", and "elem"
+-- descrie a function Char -> Bool, which is True
+-- only on non-whitespace characters
+notWhiteSpace :: Char -> Bool
+notWhiteSpace = \c -> not (elem c " \t\n")
+
+-- 11.8 define a function total, so that total f
+-- is the funcitn which at value n gives the total
+-- f 0 + f 1 + ... + f n
+-- use built in funcitons instead of recursion
+total :: (Int -> Int) -> (Int -> Int)
+total f n = sum (map f [0..n])
+-- using lambda: total f = \n sum (map f [0..n])
+
+-- 11.9 function of type "a -> b -> c" write a lambda
+-- abstraction that describes function "b -> a -> c"
+-- behaves like f but takes arguments in other order
+flip1 f = \x y -> f y x
+
+-- 11.10 give a definition which reverses order
+-- of function arguments (using above solution)
+flip2 :: (a -> b -> c) -> (b -> a -> c)
+flip2 f x y = f y x
+
+-- 11.12 find operator sections sec1 and sec2 so
+-- map sec1 . filter sec2
+-- has same effect as 
+-- filter (>0) . map (+1)
